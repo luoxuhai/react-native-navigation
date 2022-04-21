@@ -81,7 +81,11 @@
                                        tintColor:[options.topBar.searchBar.tintColor
                                                      withDefault:nil]
                                       cancelText:[withDefault.topBar.searchBar.cancelText
-                                                     withDefault:nil]];
+                                                     withDefault:nil]
+                                  showsScopeBar:[options.topBar.searchBar.showsScopeBar
+                                                 withDefault:nil]
+                                  scopeButtonTitles:options.topBar.searchBar.scopeButtonTitles
+                                  selectedScopeButtonIndex:options.topBar.searchBar.selectedScopeButtonIndex];
     }
 
     [_topBarTitlePresenter applyOptions:withDefault.topBar];
@@ -145,7 +149,11 @@
                                        tintColor:[mergeOptions.topBar.searchBar.tintColor
                                                      withDefault:nil]
                                       cancelText:[withDefault.topBar.searchBar.cancelText
-                                                     withDefault:nil]];
+                                                     withDefault:nil]
+                                  showsScopeBar:[mergeOptions.topBar.searchBar.showsScopeBar
+                                                 withDefault:nil]
+                                  scopeButtonTitles:mergeOptions.topBar.searchBar.scopeButtonTitles
+                       selectedScopeButtonIndex:[mergeOptions.topBar.searchBar.selectedScopeButtonIndex withDefault:1]];
     } else {
         [viewController setSearchBarVisible:NO];
     }

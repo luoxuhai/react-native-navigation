@@ -14,6 +14,9 @@
     self.tintColor = [ColorParser parse:dict key:@"tintColor"];
     self.placeholder = [TextParser parse:dict key:@"placeholder"];
     self.cancelText = [TextParser parse:dict key:@"cancelText"];
+    self.showsScopeBar = [BoolParser parse:dict key:@"showsScopeBar"];
+    self.scopeButtonTitles = dict[@"scopeButtonTitles"];
+    self.selectedScopeButtonIndex = [IntNumberParser parse:dict key:@"selectedScopeButtonIndex"];
     return self;
 }
 
@@ -36,6 +39,12 @@
         self.placeholder = options.placeholder;
     if (options.cancelText.hasValue)
         self.cancelText = options.cancelText;
+    if (options.showsScopeBar.hasValue)
+        self.showsScopeBar = options.showsScopeBar;
+    if (options.scopeButtonTitles)
+        self.scopeButtonTitles = options.scopeButtonTitles;
+    if (options.selectedScopeButtonIndex.hasValue)
+        self.selectedScopeButtonIndex = options.selectedScopeButtonIndex;
 }
 
 @end

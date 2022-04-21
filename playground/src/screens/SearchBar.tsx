@@ -72,6 +72,9 @@ export default class SearchBar extends React.Component<Props> {
       topBar: {
         searchBar: {
           visible: true,
+          showsScopeBar: true,
+          scopeButtonTitles: ['Photo', 'Video', 'File'],
+          selectedScopeButtonIndex: 1,
         },
       },
     });

@@ -33,6 +33,9 @@
 
 - (void)sendOnSearchBarCancelPressed:(NSString *)componentId;
 
+- (void)sendOnSearchBarScopeButtonSelected:(NSString *)componentId
+                          index:(NSNumber *)index;
+
 - (void)sendOnPreviewCompleted:(NSString *)componentId
             previewComponentId:(NSString *)previewComponentId;
 

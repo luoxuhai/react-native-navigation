@@ -11,5 +11,8 @@
 @property(nonatomic, strong) Color *tintColor;
 @property(nonatomic, strong) Text *placeholder;
 @property(nonatomic, strong) Text *cancelText;
+@property(nonatomic, strong) Bool *showsScopeBar;
+@property(nonatomic, strong) NSArray<NSString *> *scopeButtonTitles;
+@property(nonatomic, strong) IntNumber *selectedScopeButtonIndex;
 
 @end

@@ -616,6 +616,9 @@ export interface OptionsSearchBar {
   tintColor?: Color;
   placeholder?: string;
   cancelText?: string;
+  showsScopeBar?: boolean;
+  scopeButtonTitles?: string[];
+  selectedScopeButtonIndex?: number;
 }
 
 export interface OptionsTopBar {

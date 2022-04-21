@@ -41,7 +41,9 @@ export default class SearchBarModal extends React.Component<Props> {
     Navigation.mergeOptions(this, {
       topBar: {
         searchBar: {
-          visible: false,
+          visible: true,
+          focus: false,
+          showsScopeBar: false,
         },
       },
     });
@@ -51,6 +53,10 @@ export default class SearchBarModal extends React.Component<Props> {
       topBar: {
         searchBar: {
           visible: true,
+          showsScopeBar: true,
+          scopeButtonTitles: ['Photo', 'Video', 'File'],
+          selectedScopeButtonIndex: 2,
+          hideTopBarOnFocus: true,
         },
       },
     });

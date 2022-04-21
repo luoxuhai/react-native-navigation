@@ -15,7 +15,10 @@
     obscuresBackgroundDuringPresentation:(BOOL)obscuresBackgroundDuringPresentation
                          backgroundColor:(nullable UIColor *)backgroundColor
                                tintColor:(nullable UIColor *)tintColor
-                              cancelText:(NSString *_Nullable)cancelText;
+                              cancelText:(NSString *_Nullable)cancelText
+                           showsScopeBar:(BOOL)showsScopeBar
+              scopeButtonTitles:(NSArray<NSString *> *_Nullable)scopeButtonTitles
+       selectedScopeButtonIndex:(NSInteger)selectedScopeButtonIndex;
 
 - (void)setSearchBarHiddenWhenScrolling:(BOOL)searchBarHidden;
 

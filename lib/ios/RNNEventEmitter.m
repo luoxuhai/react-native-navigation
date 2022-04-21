@@ -20,6 +20,7 @@ static NSString *const ModalDismissed = @"RNN.ModalDismissed";
 static NSString *const ModalAttemptedToDismiss = @"RNN.ModalAttemptedToDismiss";
 static NSString *const SearchBarUpdated = @"RNN.SearchBarUpdated";
 static NSString *const SearchBarCancelPressed = @"RNN.SearchBarCancelPressed";
+static NSString *const SearchBarScopeButtonSelected = @"RNN.SearchBarScopeButtonSelected";
 static NSString *const PreviewCompleted = @"RNN.PreviewCompleted";
 static NSString *const ScreenPopped = @"RNN.ScreenPopped";
 static NSString *const BottomTabPressed = @"RNN.BottomTabPressed";
@@ -28,7 +29,7 @@ static NSString *const BottomTabPressed = @"RNN.BottomTabPressed";
     return @[
         AppLaunched, CommandCompleted, BottomTabSelected, BottomTabLongPressed, BottomTabPressed,
         ComponentWillAppear, ComponentDidAppear, ComponentDidDisappear, NavigationButtonPressed,
-        ModalDismissed, SearchBarUpdated, SearchBarCancelPressed, PreviewCompleted, ScreenPopped,
+        ModalDismissed, SearchBarUpdated, SearchBarCancelPressed, SearchBarScopeButtonSelected, PreviewCompleted, ScreenPopped,
         ModalAttemptedToDismiss
     ];
 }
@@ -114,6 +115,11 @@ static NSString *const BottomTabPressed = @"RNN.BottomTabPressed";
 
 - (void)sendOnSearchBarCancelPressed:(NSString *)componentId {
     [self send:SearchBarCancelPressed body:@{@"componentId" : componentId}];
+}
+
+- (void)sendOnSearchBarScopeButtonSelected:(NSString *)componentId
+                          index:(NSNumber *)index {
+    [self send:SearchBarScopeButtonSelected body:@{@"componentId" : componentId, @"index" : index}];
 }
 
 - (void)sendOnPreviewCompleted:(NSString *)componentId

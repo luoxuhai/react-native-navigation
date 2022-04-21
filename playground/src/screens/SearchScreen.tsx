@@ -31,6 +31,9 @@ export default class SearchScreen extends React.Component<NavigationComponentPro
           visible: true,
           placeholder: 'Start Typing',
           hideTopBarOnFocus: false,
+          showsScopeBar: true,
+          scopeButtonTitles: ['Photo', 'Video', 'File'],
+          selectedScopeButtonIndex: 1,
         },
         background: {
           translucent: true,

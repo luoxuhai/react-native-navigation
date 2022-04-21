@@ -30,8 +30,10 @@ const NSInteger BLUR_STATUS_TAG = 78264801;
     obscuresBackgroundDuringPresentation:(BOOL)obscuresBackgroundDuringPresentation
                          backgroundColor:(nullable UIColor *)backgroundColor
                                tintColor:(nullable UIColor *)tintColor
-                              cancelText:(NSString *)cancelText {
-    if (!self.navigationItem.searchController) {
+                              cancelText:(NSString *)cancelText
+                              showsScopeBar:(BOOL)showsScopeBar
+                              scopeButtonTitles:(NSArray<NSString *> *)scopeButtonTitles
+                              selectedScopeButtonIndex:(NSInteger)selectedScopeButtonIndex {
         UISearchController *search =
             [[UISearchController alloc] initWithSearchResultsController:nil];
         search.dimsBackgroundDuringPresentation = obscuresBackgroundDuringPresentation;
@@ -48,11 +50,14 @@ const NSInteger BLUR_STATUS_TAG = 78264801;
         search.hidesNavigationBarDuringPresentation = hideTopBarOnFocus;
         search.searchBar.searchBarStyle = UISearchBarStyleProminent;
         search.searchBar.tintColor = tintColor;
+        search.searchBar.scopeButtonTitles = scopeButtonTitles;
+        search.searchBar.selectedScopeButtonIndex = 1;
         if (@available(iOS 13.0, *)) {
             search.searchBar.searchTextField.backgroundColor = backgroundColor;
         }
 
         if (focus) {
+            search.searchBar.showsScopeBar = showsScopeBar;
             dispatch_async(dispatch_get_main_queue(), ^{
               self.navigationItem.searchController.active = true;
               [self.navigationItem.searchController.searchBar becomeFirstResponder];
@@ -65,7 +70,6 @@ const NSInteger BLUR_STATUS_TAG = 78264801;
         // Fixes #3450, otherwise, UIKit will infer the presentation context to
         // be the root most view controller
         self.definesPresentationContext = YES;
-    }
 }
 
 - (void)setSearchBarHiddenWhenScrolling:(BOOL)searchBarHidden {

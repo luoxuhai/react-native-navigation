@@ -173,6 +173,12 @@
     [self.eventEmitter sendOnSearchBarCancelPressed:self.layoutInfo.componentId];
 }
 
+- (void)selectedScopeButtonIndexDidChange:(NSInteger)index {
+    [self.eventEmitter sendOnSearchBarScopeButtonSelected:self.layoutInfo.componentId
+                                              index:@(index)
+    ];
+}
+
 - (UIViewController *)previewingContext:(id<UIViewControllerPreviewing>)previewingContext
               viewControllerForLocation:(CGPoint)location {
     return self.previewController;
